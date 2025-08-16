@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IjaxtVPN - Android VPN Server</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+    <img src="{{ url_for('static', filename='vpn-icon.svg') }}" alt="IjaxtVPN" class="logo">
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="{{ url_for('static', filename='ijaxtvpn-logo.jpg') }}" alt="IjaxtVPN" class="logo">
+            <h1 class="title">IJAXTVPN</h1>
+            <p class="subtitle">Android VPN Server with Cloudflare DNS</p>
+        </div>
+        
+        <div class="status-card">
+            <div class="status-indicator" id="statusIndicator">
+                <div class="pulse"></div>
+            </div>
+            <h2 id="statusText">Server Ready</h2>
+            <p class="dns-info">DNS: 1.1.1.1 (Cloudflare)</p>
+        </div>
+        
+        <div class="controls">
+            <button id="startBtn" class="start-button" onclick="toggleServer()">
+                <span class="button-text">START VPN</span>
+                <div class="button-glow"></div>
+            </button>
+        </div>
+        
+        <div class="info-panel">
+            <div class="info-item">
+                <h3>Server Address</h3>
+                <p id="serverAddress">{{ server_host }}:{{ server_port }}</p>
+            </div>
+            <div class="info-item">
+                <h3>Connected Clients</h3>
+                <p id="clientCount">0</p>
+            </div>
+            <div class="info-item">
+                <h3>Fast Mode</h3>
+                <p class="enabled">Enabled</p>
+            </div>
+        </div>
+        
+        <div class="logs">
+            <h3>Server Logs</h3>
+            <div id="logContainer" class="log-container">
+                <p>Ready to start VPN server...</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
